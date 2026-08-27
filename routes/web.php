@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\PostController;    
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,9 +13,8 @@ Route::get('/hello', function () {
 Route::get('/school', function () {
     return 'Welcome to our Laravel class.';
 });
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', [PostController::class, 'about']);
+
 Route::view('/about-shortcut', 'about');
 
 Route::get('/students/{id}', function (string $id) {
@@ -90,3 +90,5 @@ Route::middleware(['throttle:5,1', 'admin'])->group(function () {
 Route::middleware(['throttle:5,1', 'business.hours'])->get('/flash-sale', function () {
     return '<h1>Flash Sale!</h1><p>Welcome! The flash sale is currently available.</p>';
 });
+Route::get('/posts', [PostController::class, 'index']);
+Route::resource('posts', PostController::class);

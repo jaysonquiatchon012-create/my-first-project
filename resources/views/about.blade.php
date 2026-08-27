@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Our Class</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    <h1>About Our Laravel Class</h1>
+@section('content')
 
-    <p>We are learning how URLs connect to application actions.</p>
+    <h1>About Us</h1>
 
-</body>
-</html>
+    <p>This is the About page of my Laravel project.</p>
+
+@endsection
